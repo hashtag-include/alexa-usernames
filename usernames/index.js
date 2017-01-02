@@ -1,4 +1,3 @@
-// https://webtask.io/docs/model
 module.exports = function (context, req) {
     var body = req.body || {}
     var cb = context.done
@@ -15,12 +14,13 @@ function buildCard(username, version) {
     return {
         "version": version,
         "response": {
-            "outputSpeech": {"type":"PlainText","text":""},
+            "outputSpeech": {"type":"PlainText","text": username},
             "card": {
             "type": "Simple",
             "title": username + " | Usernames.io",
             "content": "Hi, we generated you a username.\nIt's " + username + "."
             }
-        }
+        },
+        "shouldEndSession": true
     }
 }
