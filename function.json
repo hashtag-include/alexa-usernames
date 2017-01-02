@@ -1,0 +1,11 @@
+{
+    "disabled":false,
+    "bindings":[
+        {
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [ "GET", "POST" ]
+        }
+    ]
+}
