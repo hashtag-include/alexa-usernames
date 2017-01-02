@@ -1,6 +1,6 @@
 // https://webtask.io/docs/model
 module.exports = function (context, req) {
-    var body = JSON.parse(req.body || "{}")
+    var body = req.body || {}
     var cb = context.done
     var version = body.version || "1.0"
 
