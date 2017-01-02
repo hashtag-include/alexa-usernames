@@ -14,11 +14,14 @@ function buildCard(username, version) {
     return {
         "version": version,
         "response": {
-            "outputSpeech": {"type":"PlainText","text": username},
+            "outputSpeech": {
+                "type":"PlainText",
+                "text": username
+            },
             "card": {
-            "type": "Simple",
-            "title": username + " | Usernames.io",
-            "content": "Hi, we generated you a username.\nIt's " + username + "."
+                "type": "Simple",
+                "title": "Your new username",
+                "content": "Hi, we generated you a username.\nIt's " + username + ". Enjoy!"
             }
         },
         "shouldEndSession": true
