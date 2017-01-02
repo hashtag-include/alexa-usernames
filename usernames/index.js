@@ -4,6 +4,8 @@ module.exports = function (context, req) {
     var cb = context.done
     var version = body.version || "1.0"
 
+    console.log(body)
+
     context.res = {
         status: 200,
         headers: {
