@@ -4,11 +4,12 @@ module.exports = function (context) {
     var cb = context.done
     var version = body.version
 
-    console.log(context.res)
-
     context.res = {
         status: 200,
-        body: JSON.stringify(context.res.headers)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(buildCard("test", version))
     }
     cb()
 }
