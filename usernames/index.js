@@ -6,10 +6,7 @@ module.exports = function (context, req) {
 
     context.res = {
         status: 200,
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(buildCard("test", version))
+        body: buildCard("test", version)
     }
     cb()
 }
