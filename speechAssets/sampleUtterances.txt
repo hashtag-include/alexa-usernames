@@ -1,0 +1,4 @@
+GetUsername generate a username
+GetUsername generate another username
+GetUsername give me a username
+GetUsername give me another username
