@@ -1,10 +1,10 @@
 // https://webtask.io/docs/model
-module.exports = function (context, req, res) {
+module.exports = function (context, req) {
     var body = req.body || {}
     var cb = context.done
     var version = body.version || "1.0"
 
-    res = {
+    context.res = {
         status: 200,
         headers: {
             "Content-Type": "application/json"
