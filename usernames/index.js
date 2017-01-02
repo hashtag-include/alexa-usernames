@@ -1,13 +1,23 @@
+const request = require('request')
+
 module.exports = function (context, req) {
     var body = req.body || {}
     var cb = context.done
     var version = body.version || "1.0"
 
-    context.res = {
-        status: 200,
-        body: buildCard("test", version)
-    }
-    cb()
+    request("https://usernamesio.azurewebsites.net/new", (err, res, body) => {
+        if (err || res.statusCode !== 200) {
+            context.res = {status: 500}
+        } else {
+            var parsed = JSON.parse(body)
+
+            context.res = {
+                status: 200,
+                body: buildCard(parsed.username, version)
+            }
+        }
+        cb()
+    })
 }
 
 function buildCard(username, version) {
