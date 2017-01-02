@@ -2,19 +2,13 @@
 module.exports = function (context) {
     var body = context.req.body || {}
     var cb = context.done
+    var version = body.version
 
-    validate(body, function (err) {
-        if (err) return cb(err)
-        else return generate(cb, body.version || "1.0")
-    })
-}
-
-function validate(body, cb) {
-    return cb(null)
-}
-
-function generate(cb, version) {
-    return cb(buildCard("test", version))
+    context.res = {
+        status: 200,
+        body: JSON.stringify(buildCard("test", version))
+    }
+    cb()
 }
 
 function buildCard(username, version) {
